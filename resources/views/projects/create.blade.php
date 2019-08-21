@@ -1,15 +1,9 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Birdboard</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.4/css/bulma.css"/>
-</head>
-<body>
+@extends('layouts.app')
 
-    <form action="/projects" method="POST" class="container" style="margin-top: 40px;">
+
+@section('content')
+
+    <form action="/projects" method="POST">
 
         @csrf
 
@@ -34,10 +28,9 @@
             <button type="submit" class="button is-link">Create Project</button>
           </p>
           <p class="control">
-            <button class="button is-danger">Cancel</button>
+            <a class="button is-danger" href="/projects">Cancel</a>
           </p>
         </div>
     </form>
-
-</body>
-</html>
+    
+@endsection
