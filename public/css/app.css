@@ -37,6 +37,20 @@
   box-shadow: 0 2px 7px 0;
 }
 
+.section {
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+.card {
+  background-color: #fff;
+  border-radius: .5rem;
+  box-shadow: 0 0 5px 0 rgba(0, 0, 0, .8);
+  padding: 1.25rem;
+  margin-left: .75rem;
+  margin-right: .75rem;
+}
+
 .list-reset {
   list-style: none;
   padding: 0;

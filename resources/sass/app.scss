@@ -8,7 +8,14 @@
 .button {
     @apply .bg-blue .text-white .no-underline .rounded-lg .text-sm;
     box-shadow: 0 2px 7px 0;
+}
 
+.section {
+    @apply .px-4;
+}
+
+.card  {
+    @apply .bg-white .rounded-lg .shadow .p-5 .mx-3;
 }
 
 @tailwind utilities;
