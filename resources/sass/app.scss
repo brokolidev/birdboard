@@ -5,4 +5,10 @@
 
 @tailwind components;
 
+.button {
+    @apply .bg-blue .text-white .no-underline .rounded-lg .text-sm;
+    box-shadow: 0 2px 7px 0;
+
+}
+
 @tailwind utilities;
