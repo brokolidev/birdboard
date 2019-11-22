@@ -2,6 +2,7 @@
 
 namespace Tests\Feature;
 
+use App\Project;
 use Tests\TestCase;
 use Illuminate\Foundation\Testing\WithFaker;
 use Illuminate\Foundation\Testing\RefreshDatabase;
@@ -33,12 +34,14 @@ class ManageProjectTest extends TestCase
             'title' => $this->faker->sentence,
             'description' => $this->faker->paragraph
         ];
-        $this->post('/projects', $attributes)->assertRedirect('/projects');
+        $response = $this->post('/projects', $attributes);
+
+        $project = Project::where($attributes)->first();
+        $response->assertRedirect($project->path());
 
         // 여기서 'projects'는 DB 내 table을 지칭
-        $this->assertDatabaseHas('projects', $attributes);
-
-        $this->get('/projects')->assertSee($attributes['title']);
+        // $this->assertDatabaseHas('projects', $attributes);
+        // $this->get('/projects')->assertSee($attributes['title']);
     }
 
     /** @test */
@@ -68,7 +71,7 @@ class ManageProjectTest extends TestCase
 
         $this->get($project->path())
             ->assertSee($project->title)
-            ->assertSee($project->description);
+            ->assertSee(str_limit($project->description, 100));
     }
 
     /** @test */
